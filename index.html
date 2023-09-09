@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My app</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+
+    <script src="react.js" ></script>
+    <script src="react-dom.js"></script>
+
+<script>
+    ReactDOM.render(
+        React.createElement(
+            'p',
+            null,
+            React.createElement('h3', null, 'This world is beautiful'),
+            'Hello, it\'s my react app'),
+
+        document.getElementById('app'),
+    )
+</script>
+</body>
+</html>
