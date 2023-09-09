@@ -9,19 +9,54 @@
 
     </div>
 
+    <div id="other" >
+
+    </div>
+
 
     <script src="react.js" ></script>
     <script src="react-dom.js"></script>
+    <script src="babel.js"></script>
 
-<script>
+<script type="text/babel">
+    // you can use this. it performs but it doesn't look pretty good. Right ?
     ReactDOM.render(
         React.createElement(
-            'p',
-            null,
-            React.createElement('h3', null, 'This world is beautiful'),
-            'Hello, it\'s my react app'),
+            'div',
+            {id: 'next_div'},
+            React.createElement(
+                'p',
+                {id: 'paragraph'},
+                React.createElement(
+                    'h2',
+                    {id: 'title'},
+                    'The Title of app',
+                ),
+                React.createElement(
+                    'h3',
+                    {id: 'subtitle'},
+                    'The Subtitle of app',
+                ),
+
+            ),
+            'The ended line'
+        ),
+
 
         document.getElementById('app'),
+
+
+
+    );
+
+    // or you can use this for good-looking and clearly. It's called JSX
+    ReactDOM.render(
+
+            <p>
+                <h2>Made with jsx</h2>
+                <h3>Subtitle</h3>
+            </p>,
+        document.getElementById('other')
     )
 </script>
 </body>
