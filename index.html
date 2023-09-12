@@ -24,44 +24,9 @@
 
 <script type="text/babel">
     // you can use this. it performs but it doesn't look pretty good. Right ?
-    ReactDOM.render(
-        React.createElement(
-            'div',
-            {id: 'next_div'},
-            React.createElement(
-                'p',
-                {id: 'paragraph'},
-                React.createElement(
-                    'h2',
-                    {id: 'title'},
-                    'The Title of app',
-                ),
-                React.createElement(
-                    'h3',
-                    {id: 'subtitle'},
-                    'The Subtitle of app',
-                ),
 
-            ),
-            'The ended line'
-        ),
-
-
-        document.getElementById('app'),
-
-
-
-    );
 
     // or you can use this for good-looking and clearly. It's called JSX
-    ReactDOM.render(
-
-            <p>
-                <h2>Made with jsx</h2>
-                <h3>Subtitle</h3>
-            </p>,
-        document.getElementById('other')
-    )
 </script>
 
 <script type="text/babel">
@@ -81,8 +46,8 @@
         render(){
             const value = 'value' in this.state ? this.state.value : this.props.value ;
             return <div>
-                <label form={this.props.id}>
-                    <input
+                <label form={this.props.id}>{this.props.label}
+                <br/><input
                         id={this.props.id}
                         name={this.props.name}
                         className={this.props.className}
@@ -96,7 +61,7 @@
                     {value.length > 10 && <li style={{color: "red"}}>Le nom est doit avoir au plus 10 caractère</li>}
                     {/\d/.test(value) && <li style={{color: "red"}}>Le nom ne doit pas contenir de chiffre</li>}
                 </ul>
-            </div>
+            </div>;
         }
     }
 
@@ -109,13 +74,15 @@
 
     class InputTextArea extends  React.Component {
 
+        render(){
 
+        }
 
     }
 
 
     ReactDOM.render(
-        <InputName id="a" name="nom" className="" style={{borderColor: "blue"}} value=""/>,
+        <InputName id="a" label="Nom" name="nom" className="" style={{borderColor: "blue"}} value=""/>,
         document.getElementById('input_name')
     )
 
