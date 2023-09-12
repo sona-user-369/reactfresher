@@ -70,7 +70,7 @@
 
         onChangePhoneInput(event){
             this.setState({
-
+                'value': event.target.value,
             });
         }
 
@@ -85,12 +85,12 @@
                         style={this.props.style}
                         type={this.props.type}
                         defaultValue={value}
-                        onChange={event => this.onChangeNameInput(event)}
+                        onChange={event => this.onChangePhoneInput(event)}
                     />
                 </label>
                 <ul>
-                    {value.length > 10 && <li style={{color: "red"}}>Le nom est doit avoir au plus 10 caractère</li>}
-                    {/\d/.test(value) && <li style={{color: "red"}}>Le nom ne doit pas contenir de chiffre</li>}
+                    {value.length > 10 && <li style={{color: "red"}}>Le numéro de téléphone ne doit pas dépasser 8 chiffres</li>}
+                    {/[^a-zA-Z0-9]/g.test(value) && <li style={{color: "red"}}>Le numéro de téléphone ne doit pas contenir de caractères spéciaux</li>}
                 </ul>
             </div>;
         }
@@ -124,8 +124,14 @@
 
     ReactDOM.render(
         <InputName id="a" label="Nom" name="nom" className="" style={{borderColor: "blue", borderRadius: "20px 20px 20px 20px"}} value=""/>,
-        document.getElementById('input_name')
+        document.getElementById('input_name'),
+        document.getElementById('input_phone')
     )
+
+    ReactDOM.render(
+    <InputPhone id="a" label="Phone" name="phone" className="" style={{borderColor: "blue", borderRadius: "20px 20px 20px 20px"}} value=""/>,
+    )
+
 
 
 </script>
