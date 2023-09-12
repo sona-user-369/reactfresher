@@ -67,22 +67,63 @@
 
     class InputPhone extends  React.Component{
 
-        render(){
 
+        onChangePhoneInput(event){
+            this.setState({
+
+            });
+        }
+
+        render(){
+            const value = 'value' in this.state ? this.state.value : this.props.value ;
+            return <div>
+                <label form={this.props.id}>{this.props.label}
+                    <br/><input
+                        id={this.props.id}
+                        name={this.props.name}
+                        className={this.props.className}
+                        style={this.props.style}
+                        type={this.props.type}
+                        defaultValue={value}
+                        onChange={event => this.onChangeNameInput(event)}
+                    />
+                </label>
+                <ul>
+                    {value.length > 10 && <li style={{color: "red"}}>Le nom est doit avoir au plus 10 caractère</li>}
+                    {/\d/.test(value) && <li style={{color: "red"}}>Le nom ne doit pas contenir de chiffre</li>}
+                </ul>
+            </div>;
         }
     }
 
     class InputTextArea extends  React.Component {
 
         render(){
-
+            const value = 'value' in this.state ? this.state.value : this.props.value ;
+            return <div>
+                <label form={this.props.id}>{this.props.label}
+                    <br/><input
+                        id={this.props.id}
+                        name={this.props.name}
+                        className={this.props.className}
+                        style={this.props.style}
+                        type={this.props.type}
+                        defaultValue={value}
+                        onChange={event => this.onChangeNameInput(event)}
+                    />
+                </label>
+                <ul>
+                    {value.length > 10 && <li style={{color: "red"}}>Le nom est doit avoir au plus 10 caractère</li>}
+                    {/\d/.test(value) && <li style={{color: "red"}}>Le nom ne doit pas contenir de chiffre</li>}
+                </ul>
+            </div>;
         }
 
     }
 
 
     ReactDOM.render(
-        <InputName id="a" label="Nom" name="nom" className="" style={{borderColor: "blue"}} value=""/>,
+        <InputName id="a" label="Nom" name="nom" className="" style={{borderColor: "blue", borderRadius: "20px 20px 20px 20px"}} value=""/>,
         document.getElementById('input_name')
     )
 
