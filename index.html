@@ -103,24 +103,33 @@
 
     class InputTextArea extends  React.Component {
 
+        constructor() {
+            super();
+            this.state = {}
+        }
+
+        onChangeTextarea(event){
+            this.setState({
+                'value': event.target.value,
+            })
+        }
+
         render(){
             const value = 'value' in this.state ? this.state.value : this.props.value ;
             return <div>
                 <label form={this.props.id}>{this.props.label}
-                    <br/><input
+                    <br/><textarea
                         id={this.props.id}
                         name={this.props.name}
                         className={this.props.className}
                         style={this.props.style}
-                        type={this.props.type}
                         defaultValue={value}
-                        onChange={event => this.onChangeNameInput(event)}
+                        onChange={event => this.onChangeTextarea(event)}
+                        maxLength={this.props.max}
+                        rows={this.props.rows}
                     />
                 </label>
-                <ul>
-                    {value.length > 10 && <li style={{color: "red"}}>Le nom est doit avoir au plus 10 caractère</li>}
-                    {/\d/.test(value) && <li style={{color: "red"}}>Le nom ne doit pas contenir de chiffre</li>}
-                </ul>
+                <div>{value.length}/{this.props.max}</div>
             </div>;
         }
 
@@ -135,6 +144,11 @@
     ReactDOM.render(
     <InputPhone id="a" label="Phone" name="phone" className="" style={{borderColor: "blue", borderRadius: "20px 20px 20px 20px"}} value=""/>,
     document.getElementById('input_phone')
+    )
+
+    ReactDOM.render(
+    <InputTextArea id="a" label="Commentaire" max="30" rows="20" name="commentaire" className="" style={{borderColor: "blue", borderRadius: "20px 20px 20px 20px"}} value=""/>,
+    document.getElementById('input_textarea')
     )
 
 
