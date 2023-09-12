@@ -67,6 +67,11 @@
 
     class InputPhone extends  React.Component{
 
+        constructor(props) {
+            super(props);
+            this.state = {};
+        }
+
 
         onChangePhoneInput(event){
             this.setState({
@@ -89,8 +94,8 @@
                     />
                 </label>
                 <ul>
-                    {value.length > 10 && <li style={{color: "red"}}>Le numéro de téléphone ne doit pas dépasser 8 chiffres</li>}
-                    {/[^a-zA-Z0-9]/g.test(value) && <li style={{color: "red"}}>Le numéro de téléphone ne doit pas contenir de caractères spéciaux</li>}
+                    {value.length >8  && <li style={{color: "red"}}>Le numéro de téléphone ne doit pas dépasser 8 chiffres</li>}
+                    {/[^a-zA-Z0-9]/g.test(value) || /[a-zA-Z]/.test(value) && <li style={{color: "red"}}>Le numéro de téléphone ne doit pas contenir de caractères spéciaux ni de lettres</li>}
                 </ul>
             </div>;
         }
@@ -125,11 +130,11 @@
     ReactDOM.render(
         <InputName id="a" label="Nom" name="nom" className="" style={{borderColor: "blue", borderRadius: "20px 20px 20px 20px"}} value=""/>,
         document.getElementById('input_name'),
-        document.getElementById('input_phone')
     )
 
     ReactDOM.render(
     <InputPhone id="a" label="Phone" name="phone" className="" style={{borderColor: "blue", borderRadius: "20px 20px 20px 20px"}} value=""/>,
+    document.getElementById('input_phone')
     )
 
 
