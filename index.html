@@ -103,6 +103,26 @@
 
     class InputTextArea extends  React.Component {
 
+        componentDidMount(){
+
+        }
+
+        componentWillUnmount(){
+
+        }
+
+        componentDidUpdate(prevProps, prevState, snapshot){
+
+        }
+
+        getSnapshotBeforeUpdate(prevProps, prevState){
+
+        }
+
+        shouldComponentUpdate(newProps, newState){
+
+        }
+
         constructor() {
             super();
             this.state = {}
@@ -136,10 +156,11 @@
     }
 
 
-    ReactDOM.render(
+    const nameComponent = ReactDOM.render(
         <InputName id="a" label="Nom" name="nom" className="" style={{borderColor: "blue", borderRadius: "20px 20px 20px 20px"}} value=""/>,
         document.getElementById('input_name'),
     )
+    nameComponent.setState({text: "This is cool"});
 
     ReactDOM.render(
     <InputPhone id="a" label="Phone" name="phone" className="" style={{borderColor: "blue", borderRadius: "20px 20px 20px 20px"}} value=""/>,
