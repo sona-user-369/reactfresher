@@ -112,17 +112,20 @@
         }
 
         componentDidUpdate(prevProps, prevState, snapshot){
-            console.log('Component did update',prevProps, prevState, snapshot)
+            if(this.state.value.length >3){
+                console.log('contains');
+            }
+            //console.log('Component did update',prevProps, prevState, snapshot) ;
         }
 
         getSnapshotBeforeUpdate(prevProps, prevState){
             console.log('Component before update',prevProps, prevState)
-            return 'hello'
+            return 'hello' ;
         }
 
         shouldComponentUpdate(newProps, newState){
-            console.log('Component update', newProps, newState)
-            return true
+            console.log('Component update', newProps, newState);
+            return newState.value.length <= 3 ;
         }
 
         constructor() {
@@ -162,7 +165,7 @@
         <InputName id="a" label="Nom" name="nom" className="" style={{borderColor: "blue", borderRadius: "20px 20px 20px 20px"}} value=""/>,
         document.getElementById('input_name'),
     )
-    nameComponent.setState({text: "This is cool"});
+    nameComponent.setState({value: "This is cool"});
 
     ReactDOM.render(
     <InputPhone id="a" label="Phone" name="phone" className="" style={{borderColor: "blue", borderRadius: "20px 20px 20px 20px"}} value=""/>,
