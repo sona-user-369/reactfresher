@@ -104,23 +104,25 @@
     class InputTextArea extends  React.Component {
 
         componentDidMount(){
-
+            console.log('Component did mount')
         }
 
         componentWillUnmount(){
-
+            console.log('Component will unmount')
         }
 
         componentDidUpdate(prevProps, prevState, snapshot){
-
+            console.log('Component did update',prevProps, prevState, snapshot)
         }
 
         getSnapshotBeforeUpdate(prevProps, prevState){
-
+            console.log('Component before update',prevProps, prevState)
+            return 'hello'
         }
 
         shouldComponentUpdate(newProps, newState){
-
+            console.log('Component update', newProps, newState)
+            return true
         }
 
         constructor() {
